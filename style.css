@@ -1,0 +1,308 @@
+* {
+	font-family: 'Museo Sans Cyrl';
+	box-sizing: border-box;
+}
+
+.card {
+	background: #E5F0FE;
+	width: 1240px
+}
+
+.card-flex {
+	display: flex;
+}
+
+.card-flex > div {
+	width: 50%;
+}
+
+.card-content__flex {
+	display: flex;
+}
+
+.card-left, .card-right {
+	padding: 32px 56px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.card-left {
+	background: #FFFFFF;
+	border-radius: 0px 4px 4px 0px;
+}
+
+.card-left__header {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.card-left__header_tariff {
+	font-weight: 300;
+	font-size: 15px;
+	line-height: 22px;
+	color: #616161;
+}
+
+.card-left__header_title {
+	font-size: 25px;
+	line-height: 30px;
+	color: #414141;
+	letter-spacing: 0.15px;
+}
+
+.card-left__header_subtitle {
+	font-size: 15px;
+	line-height: 22px;
+	letter-spacing: 0.25px;
+	color: #616161;
+}
+
+.card-left__content {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.card-left__content_title {
+	letter-spacing: 0.25px;
+	font-size: 20px;
+	color: #333333;
+	margin-bottom: 4px;
+	line-height: 40px;
+}
+
+.card-left__content_time {
+	display: flex;
+	gap: 10px;
+}
+
+.card-button__radio {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	width: min-content;
+}
+
+.card-button__radio input {
+	display: none;
+}
+.card-button__radio input + label {
+	display: block;
+	background: #FFFFFF;
+	border: 1px solid #ADD1F6;
+	border-radius: 4px;
+	padding: 12px 20px;
+	text-align: center;
+	width: max-content;
+}
+
+.card-button__radio input:checked + label {
+	background: #ADD1F6;
+	color: #333333;
+}
+
+.card-button__radio_optiontext > .card-button__radio_optiontext-timesale {
+	position: absolute;
+	top: -8px;
+	font-size: 12px;
+	right: -8px;
+	background: #FDC000;
+	border-radius: 24px;
+	padding: 4.5px 7px;
+	display: flex;
+}
+
+.card-button__radio_optiontext > .card-button__radio_optiontext-timesale:hover::after {
+	position: absolute;
+	content: 'Скидка при обучении во 2 смену';
+	top: 25px;
+	right: -175px;
+	background: #F9F9F9;
+	border-radius: 4px;
+	padding: 10px 12px;
+	font-size: 10px;
+	z-index: 1;
+}
+
+.card-button__radio .card-button__radio_subtext {
+	margin-top: 6px;
+	font-size: 12px;
+	letter-spacing: 0.25px;
+	color: #919191;
+	text-align: center;
+	width: 85%;
+}
+
+.card-left__content_classes {
+	display: flex;
+	gap: 10px;
+}
+
+.card-left__main {
+	display: flex;
+}
+
+.card-left__content_child {
+	display: flex;
+	gap: 10px;
+}
+
+.card-left__content_disability {
+	margin-left: 15px;
+}
+
+.card-left__content_disability-description {
+	font-size: 12px;
+	line-height: 15px;
+	letter-spacing: 0.25px;
+	margin-top: 10px;
+	color: #616161
+}
+
+.card-checkbox {
+	display: flex;
+	align-items: center;
+}
+
+.card-checkbox .card-checkbox__btn {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	border: 5px solid #7BB3FE;
+	border-radius: 32px;
+	padding: 3px;
+	height: 2px;
+}
+
+.card-checkbox .card-checkbox__title {
+	margin-left: 4px;
+	font-size: 15px;
+	line-height: 18px;
+	letter-spacing: 0.25px;
+	color: #333333;
+}
+ 
+.card-checkbox input:checked + .card-checkbox__btn {
+	background: #7BB3FE;
+}
+
+.card-left__footer {
+	justify-content: space-between;
+}
+
+.card-left__footer_text {
+	letter-spacing: 0.25px;
+	color: #333333;
+}
+
+.card-left__footer_priceall, .card-left__footer_pricemonth {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	gap: 7px;
+}
+
+.card-left__footer_priceall .card-left__footer_text {
+	font-size: 48px;
+}
+
+.card-left__footer_pricemonth .card-left__footer_text {
+	font-size: 32px;
+}
+
+.card-left__footer_priceall .card-left__footer_currency {
+	font-size: 24px;
+}
+
+.card-left__footer_pricemonth .card-left__footer_currency {
+	font-size: 16px;
+}
+
+.card-left__footer_subtext  {
+	color: #616161;
+	font-size: 14px;
+	line-height: 22px;
+}
+
+.card-right__header {
+	margin-bottom: 27px;
+}
+
+.card-right__service {
+	display: flex;
+	gap: 19px;
+	background: #FFFFFF;
+	border-radius: 4px;
+	padding: 15px 19px;
+}
+
+.card-right__service_checkbox input[type="checkbox"] + label {
+	position: relative;
+	cursor: pointer;
+}
+
+.card-right__service_checkbox input[type="checkbox"] + label:before {
+	content: "";
+	display: block;
+	width: 18px;
+	height: 18px;
+	top: 0;
+	left: 0;
+	border: 1px solid #ADD1F6;
+	border-radius: 3px;
+	background-color: white;
+}
+
+.card-right__service_checkbox input[type="checkbox"]:checked + label:before {
+	background-color: #ADD1F6;
+}
+
+.card-right__service_checkbox input[type="checkbox"]:checked + label:after {
+	content: "";
+	display: block;
+	width: 5px;
+	height: 10px;
+	border: solid #FFFFFF;
+	border-width: 0 2px 2px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	position: absolute;
+	top: 2px;
+	left: 6px;
+}
+
+.card-right__service_content-title {
+	font-size: 15px;
+	color: #333333;
+}
+
+.card-right__service_content-text {
+	font-size: 14px;
+	color: #616161;
+	margin-top: 4px;
+}
+
+.card-right__service_price {
+	background: #FFD54F;
+	border-radius: 4px;
+	padding: 4px 6px;
+	font-size: 12px;
+	height: min-content;
+	min-width: 54px;
+}
+
+.card-right__submit {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	padding: 24px;
+	background: #FFD54F;
+	border-radius: 4px;
+	border: none;
+	font-size: 18px;
+}
