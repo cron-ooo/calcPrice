@@ -146,15 +146,18 @@
 	display: flex;
 }
 
+.card-left__content_presentive,
 .card-left__content_child {
 	display: flex;
 	gap: 10px;
 }
 
+.card-left__content_presentive-more,
 .card-left__content_disability {
 	margin-left: 15px;
 }
 
+.card-left__content_presentive-description,
 .card-left__content_disability-description {
 	font-size: 12px;
 	line-height: 15px;
@@ -232,9 +235,15 @@
 	margin-bottom: 27px;
 }
 
+.card-right__content_services {
+	display: flex; 
+	flex-direction: column; 
+	gap: 8px;
+}
+
 .card-right__service {
 	display: flex;
-	gap: 19px;
+	justify-content: space-between;
 	background: #FFFFFF;
 	border-radius: 4px;
 	padding: 15px 19px;
@@ -250,8 +259,6 @@
 	display: block;
 	width: 18px;
 	height: 18px;
-	top: 0;
-	left: 0;
 	border: 1px solid #ADD1F6;
 	border-radius: 3px;
 	background-color: white;
@@ -274,6 +281,11 @@
 	position: absolute;
 	top: 2px;
 	left: 6px;
+}
+
+.card-right__service_content {
+	display: flex;
+	gap: 19px;
 }
 
 .card-right__service_content-title {
@@ -305,4 +317,9 @@
 	border-radius: 4px;
 	border: none;
 	font-size: 18px;
+}
+
+.card-left__content_period {
+	display: flex;
+	gap: 5px;
 }
