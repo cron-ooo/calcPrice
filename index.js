@@ -194,7 +194,7 @@ class FormFull {
 				initPrice = this.fullPrice
 				break;
 			case 'presentive':
-				initPrice = 2000 * (presentivePrice + 1)
+				initPrice = 2000 * (presentivePrice + 1) + priceForService
 				break;
 			default:
 				initPrice = this.defaultPrice + price + priceForService
@@ -202,7 +202,7 @@ class FormFull {
 		}
 
 		const sale = haveSale ? initPrice * periodPrice * childsPrice * saleChildsPrice * salePeriodPrice * saleDisabilityPrice : 0
-		const saleForOne = haveSale ? initPrice * periodPrice * saleChildsPrice * salePeriodPrice * saleDisabilityPrice : 0
+		const saleForOne = haveSale ? initPrice * saleChildsPrice * salePeriodPrice * saleDisabilityPrice : 0
 
 		this.price = initPrice * periodPrice * childsPrice - parseInt(sale)
 		this.priceForOne = initPrice  - parseInt(saleForOne)
@@ -227,6 +227,11 @@ class FormFull {
 	}
 
 	cardLeftContentBlockOne() {
+		const sale = `
+		<div class="card-button__radio_optiontext">
+			<div class="card-button__radio_optiontext-timesale">%</div>
+		</div>
+		`
 		return `
 		<div class="card-left__content_block card-content__flex" style="justify-content: space-between;">
 			<div class="card-left__content_worktime">
@@ -241,9 +246,7 @@ class FormFull {
 						<input type="radio" name="worktime" id="timeTwo" value="2">
 						<label for="timeTwo">2 смена</label>
 						<span class="card-button__radio_subtext">14:00 - 18:00 МСК</span>
-						<div class="card-button__radio_optiontext">
-							<div class="card-button__radio_optiontext-timesale">%</div>
-						</div>
+						${this.type === 'withEnrollment' ? sale : ''}
 					</div>
 				</div>
 			</div>
@@ -435,4 +438,4 @@ class FormFull {
 	}
 }
 
-new FormFull('presentive')
+new FormFull('withEnrollment')
