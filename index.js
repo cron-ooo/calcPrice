@@ -54,7 +54,7 @@ class FormFull {
 			class: '1-4',
 			period: '1',
 			childs: '1',
-			disability: '1',
+			disability: '0',
 			presentive: '1'
 		}
 		this.servicesCondition = {
@@ -178,15 +178,14 @@ class FormFull {
 		const disabilityPrice = parseInt(disability)
 		const presentivePrice = parseInt(presentive)
 
-		console.log(presentivePrice)
-
 		const priceForService = privateTutorPrice + privatePsychologistPrice + accessToPreviousCoursesPrice + privateLessonsPrice + permanentSchedulePrice
 		const price = this.teachingWays[classPrice][workTimePrice][this.type]
 
 		const salePeriodPrice = periodPrice >= 4 ? periodPrice >= 7 ? 0.07 : 0.05 : 1
 		const saleChildsPrice = childsPrice >= 2 ? childsPrice >= 3 ? 0.07 : 0.05 : 1
+		const saleDisabilityPrice = disabilityPrice ? 0.1 : 1
 
-		const haveSale = salePeriodPrice !== 1 || saleChildsPrice !== 1
+		const haveSale = salePeriodPrice !== 1 || saleChildsPrice !== 1 || saleDisabilityPrice !== 1
 
 		let initPrice = 0
 		
@@ -202,8 +201,8 @@ class FormFull {
 				break;
 		}
 
-		const sale = haveSale ? initPrice * periodPrice * childsPrice * saleChildsPrice * salePeriodPrice : 0
-		const saleForOne = haveSale ? initPrice * periodPrice * saleChildsPrice * salePeriodPrice : 0
+		const sale = haveSale ? initPrice * periodPrice * childsPrice * saleChildsPrice * salePeriodPrice * saleDisabilityPrice : 0
+		const saleForOne = haveSale ? initPrice * periodPrice * saleChildsPrice * salePeriodPrice * saleDisabilityPrice : 0
 
 		this.price = initPrice * periodPrice * childsPrice - parseInt(sale)
 		this.priceForOne = initPrice  - parseInt(saleForOne)
