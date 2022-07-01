@@ -268,8 +268,8 @@ class FormFull {
 	}
 
 	cardLeftContentBlockTwo() {
-		const btn = Array.from({ length: 9 }).map((i, index) => `
-			<div class="card-button__radio">
+		const period = Array.from({ length: 9 }).map((i, index) => `
+			<div class="card-button__radio card-left__period-month${index + 1}">
 				<input type="radio" name="period" id="period${index + 1}" value="${index + 1}" ${index + 1 === 1 ? 'checked' : ''}>
 				<label for="period${index + 1}">${index + 1}</label>
 			</div>
@@ -278,7 +278,7 @@ class FormFull {
 		<div class="card-left__content_block">
 			<div class="card-left__content_title">Период обучения(мес)</div>
 			<div class="card-left__content_period">
-				${btn}
+				${period}
 			</div>
 		</div>
 		`
@@ -438,4 +438,7 @@ class FormFull {
 	}
 }
 
-new FormFull('withEnrollment')
+// new FormFull('withEnrollment')
+// new FormFull('withoutEnrollment')
+// new FormFull('full')
+new FormFull('presentive')

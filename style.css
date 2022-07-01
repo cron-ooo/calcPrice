@@ -5,19 +5,31 @@
 
 .card {
 	background: #E5F0FE;
-	width: 1240px
 }
 
 .card-flex {
 	display: flex;
 }
 
+@media (max-width: 769px) {
+	.card-flex {
+		flex-direction: column;
+	}
+}
+
 .card-flex > div {
 	width: 50%;
 }
 
+@media (max-width: 769px) {
+	.card-flex > div {
+		width: 100%;
+	}
+}
+
 .card-content__flex {
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .card-left, .card-right {
@@ -146,6 +158,12 @@
 	display: flex;
 }
 
+@media (max-width: 426px) {
+	.card-left__main {
+		flex-direction: column;
+	}
+}
+
 .card-left__content_presentive,
 .card-left__content_child {
 	display: flex;
@@ -155,6 +173,14 @@
 .card-left__content_presentive-more,
 .card-left__content_disability {
 	margin-left: 15px;
+}
+
+@media (max-width: 426px) {
+	.card-left__content_presentive-more,
+	.card-left__content_disability {
+		margin-left: 0;
+		margin-top: 15px;
+	}
 }
 
 .card-left__content_presentive-description,
@@ -249,6 +275,13 @@
 	padding: 15px 19px;
 }
 
+@media (max-width: 321px) {
+	.card-right__service {
+		flex-direction: column;
+		gap: 16px;
+	}
+}
+
 .card-right__service_checkbox input[type="checkbox"] + label {
 	position: relative;
 	cursor: pointer;
@@ -288,6 +321,12 @@
 	gap: 19px;
 }
 
+@media (max-width: 321px) {
+	.card-right__service_content {
+		gap: 8px;
+	}
+}
+
 .card-right__service_content-title {
 	font-size: 15px;
 	color: #333333;
@@ -322,4 +361,17 @@
 .card-left__content_period {
 	display: flex;
 	gap: 5px;
+	flex-wrap: wrap;
+}
+
+.card-left__period-month4 input + label,
+.card-left__period-month5 input + label,
+.card-left__period-month6 input + label {
+    border: 1px solid #FFD54F;
+}
+
+.card-left__period-month7 input + label,
+.card-left__period-month8 input + label,
+.card-left__period-month9 input + label {
+    border: 1px solid #FC655F;
 }
