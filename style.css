@@ -96,7 +96,6 @@
 	flex-direction: column;
 	align-items: center;
 	position: relative;
-	width: min-content;
 }
 
 .card-button__radio input {
@@ -109,7 +108,7 @@
 	border-radius: 4px;
 	padding: 12px 20px;
 	text-align: center;
-	width: max-content;
+	width: 100%;
 }
 
 .card-button__radio input:checked + label {
@@ -361,7 +360,15 @@
 .card-left__content_period {
 	display: flex;
 	gap: 5px;
-	flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+@media (max-width: 1303px) {
+	.card-left__content_period {
+		gap: 35px;
+		margin-top: 5px;
+		flex-direction: column;
+	}
 }
 
 .card-left__period-month4 input + label,
@@ -370,8 +377,81 @@
     border: 1px solid #FFD54F;
 }
 
+.card-left__period-month4 input:checked + label,
+.card-left__period-month5 input:checked + label,
+.card-left__period-month6 input:checked + label {
+    background:#FFD54F;
+}
+
 .card-left__period-month7 input + label,
 .card-left__period-month8 input + label,
 .card-left__period-month9 input + label {
     border: 1px solid #FC655F;
+}
+
+.card-left__period-month7 input:checked + label,
+.card-left__period-month8 input:checked + label,
+.card-left__period-month9 input:checked + label {
+    background:#FC655F;
+}
+
+.period-7 .card-left__period-month8::before,
+.period-4 .card-left__period-month5::before {
+	position: absolute;
+    top: -30px;
+    width: 300%;
+    right: -103%;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    padding: 5px;
+    z-index: 1;
+}
+
+@media (max-width: 321px) {
+	.period-7 .card-left__period-month8::before,
+	.period-4 .card-left__period-month5::before {
+		right: -107%;
+	}
+}
+
+.period-7 .card-left__period-month8::before {
+    content: "7%";
+    background: #FC655F;
+}
+
+.period-4 .card-left__period-month5::before {
+    content: "5%";
+    background: #FFD54F;
+}
+
+.card-left__content_period .card-button__radio {
+	width: 100%;
+}
+
+.card-right__footer_contact {
+	display: flex;
+    gap: 16px;
+    margin-top: 14px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 426px) {
+	.card-right__footer_contact {
+		flex-direction: column;
+	}
+}
+
+.card-input {
+	background: #FFFFFF;
+	border: none;
+	border-radius: 4px;
+	padding: 6px 16px;
+	width: 100%;
+    height: 40px;
+}
+
+.card-input:focus {
+	box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05);
 }

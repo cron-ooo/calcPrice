@@ -201,10 +201,10 @@ class FormFull {
 				break;
 		}
 
-		const sale = haveSale ? initPrice * periodPrice * childsPrice * saleChildsPrice * salePeriodPrice * saleDisabilityPrice : 0
+		const sale = haveSale ? initPrice * periodPrice * saleChildsPrice * salePeriodPrice * saleDisabilityPrice : 0
 		const saleForOne = haveSale ? initPrice * saleChildsPrice * salePeriodPrice * saleDisabilityPrice : 0
 
-		this.price = initPrice * periodPrice * childsPrice - parseInt(sale)
+		this.price = initPrice * periodPrice - parseInt(sale)
 		this.priceForOne = initPrice  - parseInt(saleForOne)
 		this.cardLeftFooter()
 	}
@@ -268,17 +268,29 @@ class FormFull {
 	}
 
 	cardLeftContentBlockTwo() {
-		const period = Array.from({ length: 9 }).map((i, index) => `
-			<div class="card-button__radio card-left__period-month${index + 1}">
-				<input type="radio" name="period" id="period${index + 1}" value="${index + 1}" ${index + 1 === 1 ? 'checked' : ''}>
-				<label for="period${index + 1}">${index + 1}</label>
-			</div>
-		`).join('')
+		function period(id){
+			return `<div class="period-${id}" style="display:flex; gap:10px">
+				<div class="card-button__radio card-left__period-month${id}">
+					<input type="radio" name="period" id="period${id}" value="${id}" ${id === 1 ? 'checked' : ''}>
+					<label for="period${id}">${id}</label>
+				</div>
+				<div class="card-button__radio card-left__period-month${id + 1}">
+					<input type="radio" name="period" id="period${id + 1}" value="${id + 1}">
+					<label for="period${id + 1}">${id + 1}</label>
+				</div>
+				<div class="card-button__radio card-left__period-month${id + 2}">
+					<input type="radio" name="period" id="period${id + 2}" value="${id + 2}">
+					<label for="period${id + 2}">${id + 2}</label>
+				</div>
+			</div>`
+		}
 		return `
 		<div class="card-left__content_block">
 			<div class="card-left__content_title">Период обучения(мес)</div>
 			<div class="card-left__content_period">
-				${period}
+				${period(1)}
+				${period(4)}
+				${period(7)}
 			</div>
 		</div>
 		`
@@ -403,6 +415,11 @@ class FormFull {
 	cardRightFooter() {
 		return `
 		<div class="card-right__footer">
+			<div class="card-right__header_title">Контакты</div>
+			<div class="card-right__footer_contact">
+				<input class="card-input" placeholder="Имя" name="name">
+				<input class="card-input" placeholder="Номер телефона" name="tel">
+			</div>
 			<button class="card-right__submit" type="submit">Оставить заявку</button>
 		</div>
 		`
@@ -438,7 +455,7 @@ class FormFull {
 	}
 }
 
-// new FormFull('withEnrollment')
+new FormFull('withEnrollment')
 // new FormFull('withoutEnrollment')
 // new FormFull('full')
-new FormFull('presentive')
+// new FormFull('presentive')
